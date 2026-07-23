@@ -1,0 +1,62 @@
+{
+  "expo": {
+    "name": "Intercom",
+    "slug": "intercom-android",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "intercom",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0b0f14",
+    "android": {
+      "package": "net.avolt.intercom",
+      "adaptiveIcon": {
+        "backgroundColor": "#0b0f14",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "permissions": ["android.permission.RECORD_AUDIO"],
+      "predictiveBackGestureEnabled": false
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0b0f14",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 76
+        }
+      ],
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Intercom uses the microphone for push-to-talk announcements to your speakers."
+        }
+      ],
+      "react-native-google-cast",
+      [
+        "react-native-android-widget",
+        {
+          "widgets": [
+            {
+              "name": "Intercom",
+              "label": "Intercom",
+              "description": "Push-to-talk tiles for your speakers",
+              "minWidth": "180dp",
+              "minHeight": "60dp",
+              "targetCellWidth": 3,
+              "targetCellHeight": 1,
+              "resizeMode": "horizontal|vertical",
+              "updatePeriodMillis": 1800000
+            }
+          ]
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
