@@ -33,8 +33,16 @@
         ndkVersion = "27.1.12297006";
 
         androidComposition = pkgs.androidenv.composeAndroidPackages {
-          platformVersions = [ "36" ];
-          buildToolsVersions = [ buildToolsVersion ];
+          # Platform/build-tools 35 alongside 36: @dr.pogodin/react-native-fs (pulled in
+          # by the static server) resolves AGP defaults one major behind the app's.
+          platformVersions = [
+            "36"
+            "35"
+          ];
+          buildToolsVersions = [
+            buildToolsVersion
+            "35.0.0"
+          ];
           includeNDK = true;
           inherit ndkVersion;
           # Library subprojects that apply com.facebook.react without setting an
