@@ -37,6 +37,13 @@
           buildToolsVersions = [ buildToolsVersion ];
           includeNDK = true;
           inherit ndkVersion;
+          # Library subprojects that apply com.facebook.react without setting an
+          # ndkVersion (react-native-static-server) resolve the RN gradle plugin's
+          # internal default NDK, so both versions must exist in the read-only SDK.
+          ndkVersions = [
+            ndkVersion
+            "27.0.12077973"
+          ];
           cmakeVersions = [ "3.22.1" ];
           includeSystemImages = false;
           includeEmulator = false;
